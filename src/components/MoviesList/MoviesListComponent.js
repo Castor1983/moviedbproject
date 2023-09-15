@@ -1,14 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {useLoaderData} from "react-router-dom";
-import * as PropTypes from "prop-types";
-import {moviesListService} from "../services/moviesListService";
-import {MoviesListCardComponent} from "./MoviesListCardComponent";
-
-function MoviesListCard(props) {
-    return null;
-}
-
-MoviesListCard.propTypes = {};
+import {moviesListService} from "../../services/moviesListService";
+import {MoviesListCardComponent} from "../MoviesListCard/MoviesListCardComponent";
+import css from './MoviesList.module.css'
 const MoviesListComponent = () => {
     const [movies, setMovies] = useState([]);
     useEffect(() => {
@@ -16,8 +9,9 @@ const MoviesListComponent = () => {
 
     }, []);
     return (
-        <div style={{width: '100wh'}}>
+        <div className={css.MoviesList}>
             {movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
+
         </div>
     );
 };
