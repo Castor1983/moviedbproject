@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import css from "./MovieDetails.module.css";
 import {posterURL} from "../../constants/urls";
 import {Rating} from "@mui/material";
