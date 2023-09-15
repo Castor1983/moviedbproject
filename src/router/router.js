@@ -1,8 +1,9 @@
 import {createBrowserRouter} from "react-router-dom";
-import {AppRoutes as appRoutes} from "./appRoutes";
+import {AppRoutes, AppRoutes as appRoutes} from "./appRoutes";
 import {MainLayout} from "../layouts/MainLayout";
 import {MoviesPage} from "../pages/MoviesPage";
-import {moviesListService} from "../services/moviesListService";
+import {MovieInfoPage} from "../pages/MovieInfoPage";
+
 
 const router = createBrowserRouter([
     {
@@ -11,9 +12,14 @@ const router = createBrowserRouter([
         children: [
 
             {
-                path: appRoutes.MAIN,
-                element: <MoviesPage/>,
+                path: AppRoutes.MOVIESPAGE,
+                element: <MoviesPage/>
             },
+            {
+                path: AppRoutes.MOVIEINFO,
+                element: <MovieInfoPage/>
+            }
+
 
         ]
     }

@@ -7,10 +7,11 @@ const movie = '/movie'
 
 const urls = {
     movies: {
-        byPageNumber: () => `${movies}${page}14`
+        byPageNumber: (numberPage) => `${movies}${page}${numberPage}`
     },
     movie: {
         byId: (id) => `${movie}/${id}`
-    }
+    },
+    genreList: '/genre/movie/list'
 }
 export { baseURL, urls, token, posterURL}

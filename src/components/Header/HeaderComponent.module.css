@@ -1,5 +1,6 @@
 .Header {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     justify-content: center;
     align-items: center;
     font-size: 30px;

@@ -6,7 +6,6 @@ const MoviesPage = () => {
     return (
         <div>
             <MoviesListComponent/>
-            <Pagination count={10} variant="outlined" shape="rounded" />
         </div>
     );
 };
