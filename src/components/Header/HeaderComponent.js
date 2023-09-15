@@ -1,5 +1,7 @@
 import React from 'react';
 import css from './HeaderComponent.module.css'
+import {UserInfoComponent} from "../UserInfoComponent";
+import {FormControlLabel, Switch} from "@mui/material";
 
 const HeaderComponent = () => {
     return (
@@ -8,8 +10,8 @@ const HeaderComponent = () => {
             Movies
             Genres
             Search
-            Light Theme
-            Avatar
+             <FormControlLabel control={<Switch defaultChecked />} label="Light Theme" />
+            <UserInfoComponent/>
         </div>
     );
 };
