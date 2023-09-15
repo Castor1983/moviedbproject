@@ -3,6 +3,8 @@ import {moviesListService} from "../../services/moviesListService";
 import {MoviesListCardComponent} from "../MoviesListCard/MoviesListCardComponent";
 import css from './MoviesList.module.css'
 import {Pagination} from "@mui/material";
+import {useNavigate} from "react-router-dom";
+import {AppRoutes} from "../../router/appRoutes";
 const MoviesListComponent = () => {
     const [movies, setMovies] = useState([]);
     const [totalPages, setTotalPages] = useState([]);
