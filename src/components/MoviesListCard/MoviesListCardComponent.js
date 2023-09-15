@@ -9,7 +9,7 @@ const MoviesListCardComponent = ({movie}) => {
     return (
         <div className={css.MoviesListCard} onClick={()=>navigate(`/movieinfo/${id}`)}>
             <PosterPreviewComponent poster_path ={poster_path}/>
-            <h2>title: {title}</h2>
+            <h2> {title}</h2>
             <StarsRatingComponent vote_average = {vote_average}/>
 
 

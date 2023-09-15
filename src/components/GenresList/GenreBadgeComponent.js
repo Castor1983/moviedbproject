@@ -1,9 +1,9 @@
 import React from 'react';
 
-const GenreBadgeComponent = () => {
+const GenreBadgeComponent = ({genre}) => {
     return (
         <div>
-            GenreBadgeComponent
+            {genre.name}
         </div>
     );
 };
