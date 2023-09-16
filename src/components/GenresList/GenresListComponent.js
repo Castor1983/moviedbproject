@@ -11,7 +11,7 @@ genreListService.getAll().then(({data}) => setGenres(data.genres))
     }, []);
     return (
         <div className={css.GenresList}>
-            {genres.map(genre=> <GenreBadgeComponent key={genres.id} genre={genre}/>)}
+            {genres.map(genre=> <GenreBadgeComponent key={genre.id} genre={genre}/>)}
         </div>
     );
 };

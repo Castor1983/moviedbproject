@@ -4,7 +4,7 @@ import {MainLayout} from "../layouts/MainLayout";
 import {MoviesPage} from "../pages/MoviesPage";
 import {MovieInfoPage} from "../pages/MovieInfoPage";
 import {GenresListPage} from "../pages/GenresListPage";
-
+import {MoviesByGenreListPage} from "../pages/MoviesByGenreListPage";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: AppRoutes.GENRELIST,
                 element: <GenresListPage/>
+            },
+            {
+                path: AppRoutes.FILTERBYGENRE,
+                element: <MoviesByGenreListPage/>
             }
 
 

@@ -1,10 +1,13 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
+
 
 const GenreBadgeComponent = ({genre}) => {
+    const {id, name}=genre
     return (
-        <div>
+        <NavLink to={`/genre/${id}`} style={{textDecoration: 'none', color: 'yellow'}}>
             {genre.name}
-        </div>
+        </NavLink>
     );
 };
 

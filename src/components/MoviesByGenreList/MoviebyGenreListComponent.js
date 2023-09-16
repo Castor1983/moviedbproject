@@ -1,27 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import {moviesListService} from "../../services/moviesListService";
+import css from "../MoviesList/MoviesList.module.css";
 import {MoviesListCardComponent} from "../MoviesListCard/MoviesListCardComponent";
-import css from './MoviesList.module.css'
 import {Pagination} from "@mui/material";
-import {useNavigate} from "react-router-dom";
-const MoviesListComponent = () => {
+import {moviesFilterByGenreService} from "../../services/moviesfFilterByGenreService";
+import {useParams} from "react-router-dom";
+
+const MoviesByGenreListComponent = () => {
     const [movies, setMovies] = useState([]);
     const [totalPages, setTotalPages] = useState([]);
     const [page, setPage] = useState(1);
-    const navigate = useNavigate()
-
+    const {genre}=useParams()
     const handleChange = (event, value) => {
         setPage(value);
-
     };
-    useEffect(() => {
-            moviesListService.getAll(page).then(({data}) => {
-                setMovies(data.results)
-                setTotalPages(data.total_pages)
-                navigate({pathname: `/movies/${page}`})
-            })
 
-    }, [page]);
+    useEffect(() => {
+        moviesFilterByGenreService.getAll(page, genre).then(({data}) => {
+            setMovies(data.results)
+            setTotalPages(data.total_pages)
+        })
+
+    }, [page, genre]);
     return (
         <div className={css.MoviesList}>
             {movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
@@ -31,4 +30,4 @@ const MoviesListComponent = () => {
     );
 };
 
-export {MoviesListComponent};
+export {MoviesByGenreListComponent};
