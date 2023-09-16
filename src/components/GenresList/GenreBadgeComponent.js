@@ -5,9 +5,10 @@ import {NavLink} from "react-router-dom";
 const GenreBadgeComponent = ({genre}) => {
     const {id, name}=genre
     return (
-        <NavLink to={`/genre/${id}`} style={{textDecoration: 'none', color: 'yellow'}}>
+        <h2><NavLink to={`/genre/${id}`} style={{textDecoration: 'none', color: 'blue', }}>
             {genre.name}
-        </NavLink>
+        </NavLink></h2>
+
     );
 };
 
