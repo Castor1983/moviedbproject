@@ -17,7 +17,12 @@
 
 }
 .textInfo {
+
     font-size:xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     color: darkblue;
     padding: 15px;
     border-radius: 10px;
