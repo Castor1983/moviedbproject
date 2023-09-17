@@ -6,7 +6,7 @@ const GenreBadgeComponent = ({genre}) => {
     const {id, name}=genre
     return (
         <h2><NavLink to={`/genre/${id}`} style={{textDecoration: 'none', color: 'blue', }}>
-            {genre.name}
+            {name}
         </NavLink></h2>
 
     );
