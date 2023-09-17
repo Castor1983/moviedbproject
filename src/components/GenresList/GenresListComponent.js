@@ -7,7 +7,6 @@ import {genreActions} from "../../redux/slices/genreSlice";
 const GenresListComponent = () => {
 const dispatch = useDispatch();
 const {genres} = useSelector(state => state.genre)
-    console.log(genres)
     useEffect(() => {
         dispatch(genreActions.getAll())
     }, []);

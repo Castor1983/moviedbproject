@@ -1,17 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {movieInfoService} from "../../services/movieInfoService";
 import css from './MovieInfo.module.css'
 import {MovieDetailsComponent} from "../MovieDetails/MovieDetailsComponent";
+import {useDispatch, useSelector} from "react-redux";
+import {movieActions} from "../../redux/slices/movieSlice";
 const MovieInfoComponent = () => {
-    const [movie, setMovie] = useState([])
+    const dispatch = useDispatch()
+    const {movie} = useSelector(state => state.movie)
     const{id} = useParams()
+    console.log(id)
     useEffect(()=> {
-        movieInfoService.getAll(id).then(({data})=> setMovie(data))
+        dispatch(movieActions.getById({id:+id}))
     }, [id])
     return (
         <div className={css.MovieInfo}>
-            <MovieDetailsComponent movie={movie}/>
+            {movie && <MovieDetailsComponent movie={movie}/>}
 
         </div>
     );

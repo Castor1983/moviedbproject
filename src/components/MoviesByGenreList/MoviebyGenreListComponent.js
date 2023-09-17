@@ -2,28 +2,27 @@ import React, {useEffect, useState} from 'react';
 import css from "../MoviesList/MoviesList.module.css";
 import {MoviesListCardComponent} from "../MoviesListCard/MoviesListCardComponent";
 import {Pagination} from "@mui/material";
-import {moviesFilterByGenreService} from "../../services/moviesfFilterByGenreService";
+
 import {useParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {movieActions} from "../../redux/slices/movieSlice";
 
 const MoviesByGenreListComponent = () => {
-    const [movies, setMovies] = useState([]);
-    const [totalPages, setTotalPages] = useState([]);
+    const dispatch = useDispatch();
+    const {movies, totalPages} = useSelector(state => state.movie);
     const [page, setPage] = useState(1);
     const {genre}=useParams()
+    console.log(page, genre)
     const handleChange = (event, value) => {
         setPage(value);
     };
 
     useEffect(() => {
-        moviesFilterByGenreService.getAll(page, genre).then(({data}) => {
-            setMovies(data.results)
-            setTotalPages(data.total_pages)
-        })
-
+        dispatch(movieActions.getFilterByGenre({page, genre: +genre}))
     }, [page, genre]);
     return (
         <div className={css.MoviesList}>
-            {movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
+            {movies&& movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
             <Pagination className={css.Pagination} count={+totalPages} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
 
         </div>
