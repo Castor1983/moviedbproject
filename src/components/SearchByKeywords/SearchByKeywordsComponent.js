@@ -11,7 +11,6 @@ const SearchByKeywordsComponent = () => {
     const [movies, setMovies] = useState([]);
     const [totalPages, setTotalPages] = useState([]);
     const [page, setPage] = useState(1);
-    console.log(inputText)
     const handleChange = (event, value) => {
         setPage(value);
     };
