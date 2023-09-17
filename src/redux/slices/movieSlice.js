@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {moviesListService} from "../../services/moviesListService";
 import {moviesFilterByGenreService} from "../../services/moviesfFilterByGenreService";
 import {movieInfoService} from "../../services/movieInfoService";
+import {searchByKeywordsService} from "../../services/searchByKeywordService";
 
 const initialState = {
     movies: [],
@@ -43,7 +44,17 @@ const getById = createAsyncThunk(
         }
     }
 )
-const  
+const  getSearchByKeywords = createAsyncThunk (
+    'movieSlice/getSearchByKeywords',
+    async ({example, page}, thunkAPI) => {
+        try {
+            const {data} = await searchByKeywordsService.getAll(example, page);
+            return data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data)
+        }
+    }
+)
 
 const movieSlice = createSlice({
     name: 'movieSlice',
@@ -67,6 +78,13 @@ const movieSlice = createSlice({
         .addCase(getById.fulfilled, (state, action) => {
             state.movie = action.payload;
         })
+        .addCase(getSearchByKeywords.fulfilled, (state, action) => {
+            state.movies = action.payload.results;
+            state.page = action.payload.page;
+            state.totalPages = action.payload.total_pages;
+            state.movie = null;
+            state.error = null;
+        })
 
 })
 const {reducer: movieReducer, actions} = movieSlice;
@@ -75,7 +93,8 @@ const movieActions = {
     ...actions,
     getAll,
     getFilterByGenre,
-    getById
+    getById,
+    getSearchByKeywords
 }
 
 export {movieReducer, movieActions}

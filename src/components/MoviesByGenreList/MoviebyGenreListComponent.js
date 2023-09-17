@@ -12,7 +12,6 @@ const MoviesByGenreListComponent = () => {
     const {movies, totalPages} = useSelector(state => state.movie);
     const [page, setPage] = useState(1);
     const {genre}=useParams()
-    console.log(page, genre)
     const handleChange = (event, value) => {
         setPage(value);
     };
