@@ -25,7 +25,7 @@ const MoviesListComponent = () => {
     return (
         <div className={css.MoviesList}>
             {movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
-            <Pagination count={+totalPages} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
+            <Pagination  className={css.Pagination} count={+totalPages} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
 
         </div>
     );
