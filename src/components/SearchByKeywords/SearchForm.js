@@ -13,7 +13,7 @@ const SearchForm = ({setInputText}) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={css.SearchForm}>
             <input type = 'text' placeholder= 'search' {...register("example")} />
-            <button className={css. SearchBtn}>Search</button>
+            <button className={css.SearchBtn}>Search</button>
         </form>
     );
 };
