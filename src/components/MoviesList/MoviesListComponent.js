@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {MoviesListCardComponent} from "../MoviesListCard/MoviesListCardComponent";
 import css from './MoviesList.module.css'
 import {Pagination} from "@mui/material";
-import {useNavigate, useSearchParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {movieActions} from "../../redux/slices/movieSlice";
 const MoviesListComponent = () => {
