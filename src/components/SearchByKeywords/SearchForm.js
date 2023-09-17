@@ -1,5 +1,6 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
+import css from "./SerchKeywords.module.css"
 
 const SearchForm = ({setInputText}) => {
     const {register,handleSubmit,reset }=useForm()
@@ -14,9 +15,9 @@ const SearchForm = ({setInputText}) => {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className={css.SearchForm}>
             <input type = 'text' placeholder= 'search' {...register("example")} />
-            <button>Search</button>
+            <button className={css. SearchBtn}>Search</button>
         </form>
     );
 };

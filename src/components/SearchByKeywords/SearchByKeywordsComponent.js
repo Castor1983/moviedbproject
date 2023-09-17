@@ -29,7 +29,7 @@ const SearchByKeywordsComponent = () => {
         <div className={css.Keywords}>
             <SearchForm setInputText={setInputText}/>
             {movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
-            {inputText && <Pagination count={+totalPages} variant="outlined" shape="rounded" page={page} onChange={handleChange}/>}
+            {inputText && <Pagination className={css.Pagination} count={+totalPages} variant="outlined" shape="rounded" page={page} onChange={handleChange}/>}
         </div>
 
     );

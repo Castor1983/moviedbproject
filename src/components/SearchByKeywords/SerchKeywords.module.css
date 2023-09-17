@@ -1,6 +1,20 @@
 .Keywords {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 10% 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 10px;
+    justify-items: center;
     align-items: center;
-    justify-content: space-around;
+}
+.SearchForm, .Pagination {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+.SearchBtn {
+    border: none;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    background: black;
+    color: yellow;
 }
