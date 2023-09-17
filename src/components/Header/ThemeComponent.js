@@ -15,7 +15,7 @@ const ThemeComponent = () => {
     });
     return (
         <div>
-           <button onClick={handleclick}>{theme?'Light' : 'Dark'}</button>
+           <button onClick={handleclick} className={'button'}>{theme?'Light theme' : 'Dark theme'}</button>
         </div>
     );
 };
