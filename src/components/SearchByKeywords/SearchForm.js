@@ -1,6 +1,5 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
-import {logDOM} from "@testing-library/react";
 
 const SearchForm = ({setInputText}) => {
     const {register,handleSubmit,reset }=useForm()
