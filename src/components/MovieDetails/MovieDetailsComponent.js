@@ -10,7 +10,7 @@ const {backdrop_path, title, overview, genres, vote_average, release_date, runti
     return (
         <div className={css.MovieDetails}>
             <div className={css.title}>
-                <img src={`${posterURL}${backdrop_path}`} className={css.img}/>
+                <img src={`${posterURL}${backdrop_path}`} alt={'poster'} className={css.img}/>
                 <h1>{title}</h1>
             </div>
             <div className={css.textInfo}>

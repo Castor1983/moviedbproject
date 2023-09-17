@@ -8,7 +8,7 @@ const MovieInfoComponent = () => {
     const{id} = useParams()
     useEffect(()=> {
         movieInfoService.getAll(id).then(({data})=> setMovie(data))
-    }, [])
+    }, [id])
     return (
         <div className={css.MovieInfo}>
             <MovieDetailsComponent movie={movie}/>

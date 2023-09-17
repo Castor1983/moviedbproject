@@ -9,7 +9,7 @@ const HeaderComponent = () => {
     return (
         <div className={css.Header}>
             <h3>The MovieDB</h3>
-            <NavLink to={AppRoutes.MOVIESLIST}style={{textDecoration: 'none', color: 'yellow'}}>Movies</NavLink>
+            <NavLink to={AppRoutes.MOVIESLIST} style={{textDecoration: 'none', color: 'yellow'}}>Movies</NavLink>
             <NavLink to={AppRoutes.GENRELIST} style={{textDecoration: 'none', color: 'yellow'}}>Genres</NavLink>
             <NavLink to={AppRoutes.SEARCH} style={{textDecoration: 'none', color: 'yellow'}}>Search</NavLink>
 
