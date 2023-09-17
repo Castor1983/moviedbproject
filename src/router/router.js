@@ -14,7 +14,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Navigate to={AppRoutes.MOVIESLIST}/>
+                element: <Navigate to={AppRoutes.MOVIESPAGE}/>
             },
             {
                 path: AppRoutes.MOVIESPAGE,
