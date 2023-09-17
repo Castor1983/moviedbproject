@@ -4,6 +4,7 @@ export const AppRoutes = {
     MOVIESPAGE: '/movies/:page',
     MOVIEINFO: '/movieinfo/:id',
     GENRELIST: '/genres',
-    FILTERBYGENRE: '/genre/:genre'
+    FILTERBYGENRE: '/genre/:genre',
+    SEARCH: '/search'
 
 }

@@ -1,24 +1,34 @@
-import React, {useState} from 'react';
-import TextField from "@mui/material/TextField"
+import React, {useEffect, useState} from 'react';
+import {SearchForm} from "./SearchForm";
+
+import {Pagination} from "@mui/material";
+import {searchByKeywordsService} from "../../services/searchByKeywordService";
+import {MoviesListCardComponent} from "../MoviesListCard/MoviesListCardComponent";
+
 const SearchByKeywordsComponent = () => {
-    const [inputText, setInputText] = useState("");
-    let inputHandler = (e) => {
-        let lowerCase = e.target.value.toLowerCase();
-        setInputText(lowerCase);
+    const [inputText, setInputText] = useState('');
+    const [movies, setMovies] = useState([]);
+    const [totalPages, setTotalPages] = useState([]);
+    const [page, setPage] = useState(1);
+    console.log(inputText)
+    const handleChange = (event, value) => {
+        setPage(value);
     };
 
+      useEffect(() => {
+            searchByKeywordsService.getAll(inputText.example, page).then(({data}) => {
+                setMovies(data.results)
+                setTotalPages(data.total_pages)
+            })
+
+        }, [page, inputText]);
+
+
     return (
-        <div className="main">
-            <h1>React Search</h1>
-            <div className="search">
-                <TextField
-                    id="outlined-basic"
-                    onChange={inputHandler}
-                    variant="outlined"
-                    fullWidth
-                    label="Search"
-                />
-            </div>
+        <div >
+            <SearchForm setInputText={setInputText}/>
+            {movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
+            {inputText && <Pagination count={+totalPages} variant="outlined" shape="rounded" page={page} onChange={handleChange}/>}
         </div>
 
     );

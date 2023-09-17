@@ -2,6 +2,6 @@ import {apiService} from "./apiService";
 import {urls} from "../constants/urls";
 
 const searchByKeywordsService = {
-    getAll: (numberPage, query)=> apiService.get(urls.movies.searchByKeywords(numberPage, query))
+    getAll: (query, numberPage )=> apiService.get(urls.movies.searchByKeywords(query, numberPage ))
 }
 export {searchByKeywordsService}
