@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './HeaderComponent.module.css'
-import {UserInfoComponent} from "../UserInfoComponent";
+import {UserInfoComponent} from "../UserInfo/UserInfoComponent";
 import {FormControlLabel, Switch} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import {AppRoutes} from "../../router/appRoutes";

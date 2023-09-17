@@ -4,6 +4,7 @@ import {SearchForm} from "./SearchForm";
 import {Pagination} from "@mui/material";
 import {searchByKeywordsService} from "../../services/searchByKeywordService";
 import {MoviesListCardComponent} from "../MoviesListCard/MoviesListCardComponent";
+import css from "./SerchKeywords.module.css";
 
 const SearchByKeywordsComponent = () => {
     const [inputText, setInputText] = useState('');
@@ -25,7 +26,7 @@ const SearchByKeywordsComponent = () => {
 
 
     return (
-        <div >
+        <div className={css.Keywords}>
             <SearchForm setInputText={setInputText}/>
             {movies.map(movie => <MoviesListCardComponent key={movie.id} movie={movie}/>)}
             {inputText && <Pagination count={+totalPages} variant="outlined" shape="rounded" page={page} onChange={handleChange}/>}
